@@ -4,7 +4,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
 
 import { getGraphQLConfig } from '@/src/core/config/graphql.config'
-import { TestModule } from '@/src/modules/test/test/test.module'
 import { IS_DEV_ENV } from '@/src/shared/utils/is-dev.util'
 
 import { AccountModule } from '../modules/auth/account/account.module'
@@ -23,7 +22,6 @@ import { RedisModule } from './redis/redis.module'
 		}),
 		PrismaModule,
 		RedisModule,
-		TestModule, // TODO: delete
 		AccountModule
 	]
 })
