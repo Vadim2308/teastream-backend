@@ -7,6 +7,7 @@ import { getGraphQLConfig } from '@/src/core/config/graphql.config'
 import { IS_DEV_ENV } from '@/src/shared/utils/is-dev.util'
 
 import { AccountModule } from '../modules/auth/account/account.module'
+import { SessionModule } from '../modules/auth/session/session.module'
 
 import { PrismaModule } from './prisma/prisma.module'
 import { RedisModule } from './redis/redis.module'
@@ -22,7 +23,8 @@ import { RedisModule } from './redis/redis.module'
 		}),
 		PrismaModule,
 		RedisModule,
-		AccountModule
+		AccountModule,
+		SessionModule
 	]
 })
 export class CoreModule {}
