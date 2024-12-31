@@ -12,16 +12,16 @@ import { AccountService } from './account.service'
  */
 @Resolver('Account')
 export class AccountResolver {
-	public constructor(private readonly accountService: AccountService) {}
+  public constructor(private readonly accountService: AccountService) {}
 
-	@Authorization()
-	@Query(() => UserModel, { name: 'findProfile' })
-	public async me(@Authorized('id') id: string) {
-		return this.accountService.me(id)
-	}
+  @Authorization()
+  @Query(() => UserModel, { name: 'findProfile' })
+  public async me(@Authorized('id') id: string) {
+    return this.accountService.me(id)
+  }
 
-	@Mutation(() => Boolean, { name: 'createUser' })
-	public async create(@Args('data') input: CreateUserInput) {
-		return this.accountService.create(input)
-	}
+  @Mutation(() => Boolean, { name: 'createUser' })
+  public async create(@Args('data') input: CreateUserInput) {
+    return this.accountService.create(input)
+  }
 }

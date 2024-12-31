@@ -13,18 +13,18 @@ import { PrismaModule } from './prisma/prisma.module'
 import { RedisModule } from './redis/redis.module'
 
 @Module({
-	imports: [
-		ConfigModule.forRoot({ ignoreEnvFile: !IS_DEV_ENV, isGlobal: true }),
-		GraphQLModule.forRootAsync({
-			driver: ApolloDriver,
-			imports: [ConfigModule],
-			useFactory: getGraphQLConfig,
-			inject: [ConfigService]
-		}),
-		PrismaModule,
-		RedisModule,
-		AccountModule,
-		SessionModule
-	]
+  imports: [
+    ConfigModule.forRoot({ ignoreEnvFile: !IS_DEV_ENV, isGlobal: true }),
+    GraphQLModule.forRootAsync({
+      driver: ApolloDriver,
+      imports: [ConfigModule],
+      useFactory: getGraphQLConfig,
+      inject: [ConfigService],
+    }),
+    PrismaModule,
+    RedisModule,
+    AccountModule,
+    SessionModule,
+  ],
 })
 export class CoreModule {}

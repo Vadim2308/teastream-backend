@@ -1,7 +1,7 @@
 import {
-	type ValidationArguments,
-	ValidatorConstraint,
-	type ValidatorConstraintInterface
+  type ValidationArguments,
+  ValidatorConstraint,
+  type ValidatorConstraintInterface,
 } from 'class-validator'
 
 // import { NewPasswordInput } from '@/src/modules/auth/password-recovery/inputs/new-password.input'
