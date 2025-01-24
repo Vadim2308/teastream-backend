@@ -20,6 +20,12 @@ async function bootstrap() {
   app.use(cookieParser(config.getOrThrow<string>('COOKIES_SECRET')))
   app.useGlobalPipes(new ValidationPipe({ transform: true }))
 
+  /**
+   * Когда вызывается req.session.save(), middleware:
+   * Сохраняет данные сессии в Redis.
+   * Генерирует уникальный sessionID.
+   * Устанавливает куку с этим sessionID в заголовке Set-Cookie, согласно конфигурации, описанной в cookie:{}
+   */
   app.use(
     session({
       secret: config.getOrThrow<string>('SESSION_SECRET'),

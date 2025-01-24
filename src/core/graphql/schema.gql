@@ -2,6 +2,11 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type AuthModel {
+  message: String
+  user: UserModel
+}
+
 input CreateUserInput {
   email: String!
   password: String!
@@ -38,6 +43,7 @@ type Mutation {
   loginUser(data: LoginInput!): UserModel!
   logoutUser: Boolean!
   removeSession(id: String!): Boolean!
+  verifyAccount(data: VerificationInput!): AuthModel!
 }
 
 type Query {
@@ -66,7 +72,13 @@ type UserModel {
   displayName: String!
   email: String!
   id: ID!
+  isEmailVerified: Boolean!
+  isVerified: Boolean!
   password: String!
   updatedAt: DateTime!
   username: String!
+}
+
+input VerificationInput {
+  token: String!
 }
